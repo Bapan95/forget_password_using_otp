@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title></title>
+  <!-- Favicon-->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+    type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core Css -->
+  <link href="assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+  <!-- Waves Effect Css -->
+  <link href="assets/plugins/node-waves/waves.css" rel="stylesheet" />
+  <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+  <!-- Animation Css -->
+  <link href="assets/plugins/animate-css/animate.css" rel="stylesheet" />
+
+  <link href="assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- Bootstrap Material Datetime Picker Css -->
+
+  <!-- Custom Css -->
+  <link href="js/datepicker.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <!-- <link href="../assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+    rel="stylesheet" /> -->
+  <script src="js/nav.js"></script>
+  <script src="js/common-functions.js"></script>
+  <!-- <script src="js/bootstrap-datepicker.js"></script> -->
+
+
+</head>
+
+<body class="theme-indigo">
+  <!-- Page Loader -->
+  <div class="page-loader-wrapper">
+    <div class="loader">
+      <div class="preloader">
+        <div class="spinner-layer pl-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+      <p>Please wait...</p>
+    </div>
+  </div>
+  <!-- #END# Page Loader -->
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+  <!-- #END# Overlay For Sidebars -->
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <div class="search-icon"> <i class="material-icons">search</i> </div>
+    <input type="text" placeholder="START TYPING...">
+    <div class="close-search"> <i class="material-icons">close</i> </div>
+  </div>
+  <!-- #END# Search Bar -->
+  <!-- Top Bar -->
+  <div id="top_nav">
+  </div>
+  <!-- #Top Bar -->
+  <!-- User Info -->
+  <script>user();</script>
+  <!-- #User Info -->
+
+
+  <!-- Menu -->
+  <div id="mob_nav_ajax_user"></div>
+  <!-- #Menu -->
+  <!-- Footer -->
+  <script>footer();</script>
+  <section class="content content30" id="user_permission_acc_content">
+    <div class="container-fluid">
+      <!--<div class="block-header">
+                 </div>-->
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="header">
+              <div class="row clearfix">
+                <div class="col-xs-12 col-sm-6">
+                  <h2>Sales Register</h2>
+                </div>
+                <div class="col-xs-12 col-sm-6 align-right js-sweetalert">
+
+
+                  <div id="list_buttons_div_srch">
+                    <div class="form-group form-float">
+                      <button class="btn bg-green waves-effect action_btn pull-right download_class" type="submit"
+                        id="download_excel_srch"> <i class="material-icons">file_download</i> Download Excel</button>
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="body">
+              <form method="post" id="form1" name="frm_add_edit" class="formEditDataTemplateField" action=""
+                autocomplete="off">
+                <input type="hidden" id="action_type" name="action_type">
+                <div class="row">
+                  <div class="col-md-3 col-sm-3">
+                    <div class="form-group form-float">
+                      <div class="form-line focused" id="set">
+                        <input type="text" id="from_date" class="form-control date1" name="from_date" required="">
+                        <label class="form-label">From Date</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-3">
+                    <div class="form-group form-float" id="set">
+                      <div class="form-line focused">
+                        <input type="text" name="to_date" id="to_date" class="form-control date2" required="">
+                        <label class="form-label">To Date</label>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group form-float">
+                      <div class="form-line focused-cus">
+                        <label class="form-label"  for="client">select client<span
+                          class="aster">*</span></label>
+
+                        <select class="form-control" id="client" name="client" data-live-search="true"
+                         >
+                          <option value="" disabled="true">Client</option>
+
+
+                        </select>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-1">
+                    <div class="form-group form-float">
+                      <div class="form-group ">
+
+                        <button id="search_button" class="btn btn-primary m_top15">Search</button>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </form>
+
+
+
+              <div class="">
+                <table id="cancel_table" class="table table-bordered table-striped table-hover js-exportable dataTable">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Date</th>
+                      <th>Company Name</th>
+                      <th>Client Name</th>
+                      <th>Invoice No</th>
+                      <th>Tax Amount</th>
+                      <th>Invoiced Amount</th>
+
+                    </tr>
+                  </thead>
+
+                  <tbody id="cancel_booking_table">
+                  </tbody>
+                  <tfoot id="footer_table">
+
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap Core Js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Select Plugin Js -->
+  <script src="assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+  <!-- Slimscroll Plugin Js -->
+  <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+  <!-- Moment Plugin Js -->
+  <script src="assets/plugins/momentjs/moment.js"></script>
+  <!-- Bootstrap Material Datetime Picker Plugin Js -->
+  <script src="assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <!-- Waves Effect Plugin Js -->
+  <script src="assets/plugins/node-waves/waves.js"></script>
+  <script src="assets/plugins/jquery-validation/jquery.validate.js"></script>
+
+  <!-- Jquery DataTable Plugin Js -->
+  <script src="assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
+  <script src="assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+  <script src="assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+  <!-- Custom Js -->
+  <!--  <script src="assets/js/admin.js"></script> -->
+  <script src="assets/js/pages/forms/form-validation.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      getAppName();
+      isLogin();
+      bind_top_nav();
+      
+      bind_menu_mobile();
+      
+      // user_access();
+      // alert('hi');
+      getclient();
+      // createDatePicker();
+      var date = new Date();
+      // alert (date);
+                var start_date = new Date(date.getFullYear(), date.getMonth(), 1);
+                var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+                $('#from_date').datepicker({
+                    format: 'dd-mm-yyyy',
+                    // Highlight: true,
+                    
+                    autoclose: true,
+                });
+
+                $('#to_date').datepicker({
+                    format: 'dd-mm-yyyy',
+                    autoclose: true,
+                });
+
+
+
+                $('#from_date').datepicker('setDate', start_date);
+                $('#to_date').datepicker('setDate', today);
+
+
+
+    });
+
+    // function createDatePicker() {
+    //   var start_date = $('#from_date').datepicker({
+    //     autoclose: true,
+    //     todayHighlight: true,
+    //     format: 'dd-mm-yyyy'
+    //   }).on('changeDate', function (ev) {
+    //     if (ev.date.valueOf() > end_date.datepicker("getDate").valueOf()) {
+
+    //       end_date.datepicker("update", "");
+    //     }
+    //     end_date.datepicker("update");
+    //   });
+    //   $('#from_date').on('show', function (e) {
+    //     if (e.date) { $(this).data('stickyDate', e.date); }
+    //     else { $(this).data('stickyDate', null); }
+    //   }).on('hide', function (e) {
+    //     var stickyDate = $(this).data('stickyDate');
+    //     if (!e.date && stickyDate) { $(this).datepicker('setDate', stickyDate); $(this).data('stickyDate', null); }
+    //   });
+
+
+    //   // $('#to_date').datepicker('setDate', today);
+
+    // }
+    function getclient(selected) {
+
+      $.ajax({
+        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url: "handler/ajax_availability_status.php",
+        data: { action_type: 'CLIENT' },
+        dataType: 'json', // what type of data do we expect back from the server
+        encode: true,
+        // async: false
+      })
+        // using the done promise callback
+        .done(function (data) {
+          //var resultHTML = '<option value="">State</option>';
+          var resultHTML = '';
+          if (data.status) {
+            resultHTML += '<option value="">Select Client</option>';
+            $.each(data.vendor_list, function (key, value) {
+              resultHTML += '<option value="' + value.client_id + '">' + value.client_name + '</option>';
+            });
+          }
+          else {
+            resultHTML = '<option value="">No Records Available</option>';
+          }
+          $("#client").html(resultHTML);
+          if (selected) {
+            $("#client").val(selected);
+          }
+          $("#client").selectpicker('refresh');
+          console.log(data);
+        })
+        // using the fail promise callback
+        .fail(function (data) {
+          console.log(data);
+        });
+    }
+
+    $("#search_button").click(function (event) {
+      event.preventDefault();
+      $('#cancel_booking_table').text("");
+      //$('#mytable').DataTable();
+      //('#booking_table').text("");
+      $("#list_buttons_div_srch").show();
+      //$("#list_buttons_div").hide();
+
+      populate_cancel();
+    });
+
+    function populate_cancel() {
+
+
+
+
+      $("#action_type").val("SALES_REGISTER");
+      var sendData = $("#form1").serializeArray();
+      $.ajax({
+        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url: "handler/ajax_cancel_booking.php",
+        data: sendData,
+        dataType: 'json', // what type of data do we expect back from the server
+        encode: true,
+      })
+        .done(function (data) {
+          var resultHTML = " ";
+          var resultFOOT = " ";
+          var i = 0;
+          var gst_amt = 0;
+          var payable_amount = 0;
+          if (data.status) {
+            $.each(data.search_list, function (key, value) {
+              i++;
+
+              gst_amt = ((gst_amt * 1) + (value.gst_amt * 1)) * 1;
+              payable_amount = ((payable_amount * 1) + (value.payable_amount * 1)) * 1;
+
+              resultHTML += '<tr class="det_emp">';
+              resultHTML += '<td>' + i + '</td>';
+              resultHTML += '<td>' + value.invoice_date + '</td>';
+              resultHTML += '<td>' + value.company_name + '</td>';
+              resultHTML += '<td>' + value.client_name + '</td>';
+              resultHTML += '<td>' + value.invoice_no + '</td>';
+              resultHTML += '<td align="right">' + value.gst_amt + '</td>';
+              resultHTML += '<td align="right">' + value.payable_amount + '</td>';
+              resultHTML += '</tr>';
+
+
+            })
+            resultFOOT += '<tr>';
+            resultFOOT += '<td colspan="5" style="text-align:center">Total</td>';
+            resultFOOT += '<td style="text-align:right">' + gst_amt.toFixed(2) + ' </td>';
+            resultFOOT += '<td style="text-align:right">' + payable_amount.toFixed(2) + ' </td>';
+            resultFOOT += '</tr>';
+          }
+          else {
+            resultHTML = '<td>No Booking Available</td>';
+          }
+
+          $("#cancel_table").dataTable().fnDestroy();
+          $('#cancel_booking_table').html(resultHTML);
+          $('#footer_table').html(resultFOOT);
+          $('#cancel_table').DataTable();
+
+        })
+
+
+
+
+    }
+
+
+
+
+    $("#download_excel_srch").click(function (event) {
+      event.preventDefault();
+      var client = $("#client").val();
+
+      var from_date = $("#from_date").val();
+      var to_date = $("#to_date").val();
+      $.ajax({
+        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url: "handler/ajax_cancel_booking.php",
+        data: { client: client, from_date: from_date, to_date: to_date, action_type: 'DOWNLOAD_EXCEL_SALES_REGISTER' },
+        dataType: 'json', // what type of data do we expect back from the server
+        encode: true
+      })
+        // using the done promise callback
+        .done(function (data) {
+          console.log(data);
+
+          if (data.status) {
+            //window.location.href = "../available-sites/" + data.file_name;
+            var $a = $("<a>");
+            $a.attr("href", data.file);
+            $a.attr("target", "_blank");
+            $a.text("Download Excel");
+            $("#list_buttons_div_srch").append($a);
+            //var file_name=data.file_name;
+            $a.attr("download", data.file_name + ".xlsx");
+            $a[0].click();
+            $a.remove();
+          }
+        })
+        // using the fail promise callback
+        .fail(function (data) {
+          // show any errors
+          // best to remove for production
+          console.log(data);
+        });
+    });
+  </script>
+</body>
+
+</html>
